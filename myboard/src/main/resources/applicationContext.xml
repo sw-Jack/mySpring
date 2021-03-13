@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="tv" class="lee.spring.polymorphism.SamsungTV" >
+		<property name="speaker" ref="apple"></property>
+		<property name="price" value="3000000"></property>
+	</bean>
+	<!-- p : property(멤버변수), c : constructor(생성자) -->
+	<!-- 
+	<bean id="tv" class="lee.spring.polymorphism.SamsungTV"
+			p:speaker-ref="sony" p:price="3000000"/>
+	 -->
+	 
+	<bean id="sony" class="lee.spring.polymorphism.SonySpeaker"/>
+	<bean id="apple" class="lee.spring.polymorphism.AppleSpeaker"/>
+</beans>
