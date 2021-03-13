@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="collectionBean" class="lee.spring.collection.CollectionBean">
+		<property name="addressProp">
+			<props>
+				<prop key="홍길동">율도국</prop> <!-- key / value -->
+				<prop key="손오공">화과산</prop>
+			</props>
+		</property>
+	</bean>
+</beans>
