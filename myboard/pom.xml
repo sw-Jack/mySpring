@@ -33,6 +33,13 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 				
+		<!-- Oracle Driver -->
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>11.2.0.4</version>
+		</dependency>
+	
 		<!-- AspectJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
