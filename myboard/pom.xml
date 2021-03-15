@@ -43,9 +43,16 @@
 		<!-- AspectJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
-			<artifactId>aspectjrt</artifactId>
+			<artifactId>aspectjrt</artifactId>    <!-- AOP 실행 -->
 			<version>${org.aspectj-version}</version>
 		</dependency>	
+		<!-- AOP 적용을 위한 설정 -->
+		<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+		<dependency>
+		    <groupId>org.aspectj</groupId>
+		    <artifactId>aspectjweaver</artifactId>		<!-- AOPA weaving : 적용 -->
+		    <version>1.9.6</version>
+		</dependency>
 		
 		<!-- Logging -->
 		<dependency>
