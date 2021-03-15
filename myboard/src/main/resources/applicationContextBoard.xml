@@ -8,4 +8,31 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 
 	<context:component-scan base-package="lee.spring.web"></context:component-scan>
+	
+	<!-- AOP 적용을 위한 설정 -->
+	<!-- Advice(Bean) : '언제' 공통 관심 기능을 핵심 로직에 적용할 지 정의할 클래스 -->
+	<bean id="log" class="lee.spring.web.common.LogAdvice"></bean>
+	<bean id="around" class="lee.spring.web.common.AroundAdvice"></bean>
+	
+	<aop:config>
+		<!-- Pointcut : joinpoint의 부분 집합으로 실제로 Advice가 적용되는 joinpoint -->
+		<aop:pointcut expression="execution(* lee.spring.web..*Impl.*(..))" id="allPointCut"/>
+		<aop:pointcut expression="execution(* lee.spring.web..*Impl.get*(..))" id="getPointCut"/>
+		<!-- Aspect : 여러 객체에 공통으로 적용되는 공통 관심 사항 (중복 실행되는 부분) -->
+		<aop:aspect ref="log">
+			<aop:before method="beforeLog" pointcut-ref="allPointCut"/>
+		</aop:aspect>
+		<aop:aspect ref="log">
+			<aop:after method="afterLog" pointcut-ref="getPointCut"/>
+		</aop:aspect>
+		<aop:aspect ref="log">
+			<aop:after-returning method="afterReturningLog" pointcut-ref="allPointCut"/>
+		</aop:aspect>
+		<aop:aspect ref="log">
+			<aop:after-throwing method="afterThrowingLog" pointcut-ref="getPointCut"/>
+		</aop:aspect>
+		<aop:aspect ref="around">
+			<aop:around method="aroundLog" pointcut-ref="allPointCut"/>
+		</aop:aspect>
+	</aop:config>
 </beans>
