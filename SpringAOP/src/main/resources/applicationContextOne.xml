@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+	
+	<bean id="writeArticleService" class="lee.spring.board.service.WriteArticleServiceImpl">
+		<constructor-arg><ref bean="articleDAO"/></constructor-arg> <!-- DI -->
+	</bean>
+	<bean id="articleDAO" class="lee.spring.board.dao.OracleArticleDAO"></bean>
+	<bean id="memberService" class="lee.spring.member.service.MemberServiceImpl"></bean>
+	<!-- Advice 클래스 등록 -->
+	<bean id="traceAdvice" class="lee.spring.common.ProfilingAdvice"></bean>
+
+	<!-- AOP 설정 -->
+	<aop:config>
+		<!-- Aspect -->
+		<aop:aspect id="traceAspect1" ref="traceAdvice">
+			<!-- Pointcut -->
+			<aop:pointcut expression="execution(public * lee.spring.board.service..*(..))" id="publicMethod"/>
+			<aop:around pointcut-ref="publicMethod" method="trace"/>
+		</aop:aspect>
+		<aop:aspect id="traceAspect2" ref="traceAdvice">
+			<aop:around pointcut="execution(public * lee.spring.member.service..*(..))" method="trace"/>
+		</aop:aspect>
+	</aop:config>
+</beans>
