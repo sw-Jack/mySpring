@@ -14,7 +14,7 @@ import lee.spring.web.common.LogAdvice;
 public class BoardServiceImpl implements BoardService {
 
 	@Autowired
-	private BoardDAO boardDAO;
+	private boardDAOSpring boardDAO;
 	//private LogAdvice log;
 	//private Log4jAdvice logging;
 	
@@ -29,6 +29,7 @@ public class BoardServiceImpl implements BoardService {
 		//	throw new IllegalArgumentException("0번 글은 등록할 수 없습니다.");
 		//}
 		boardDAO.insertBoard(vo);
+		//boardDAO.insertBoard(vo); // 트랜잭션 오류 처리 테스트 
 	}
 
 	@Override
