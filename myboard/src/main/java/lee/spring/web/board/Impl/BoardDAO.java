@@ -44,7 +44,7 @@ public class BoardDAO {
 			conn = JDBCUtil.getConnection();
 			pstmt = conn.prepareStatement(BOARD_UPDATE);
 			pstmt.setString(1, vo.getTitle());
-			pstmt.setString(2, vo.getWriter());
+			pstmt.setString(2, vo.getContent());
 			pstmt.setInt(3, vo.getSeq());
 			pstmt.executeUpdate();
 		} catch(Exception e) {
@@ -75,7 +75,7 @@ public class BoardDAO {
 			conn = JDBCUtil.getConnection();
 			pstmt = conn.prepareStatement(BOARD_GET);
 			pstmt.setInt(1, vo.getSeq());
-			pstmt.executeQuery();
+			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				board = new BoardVO();
 				board.setSeq(rs.getInt("seq"));
