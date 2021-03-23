@@ -2,14 +2,16 @@ package lee.spring.web.board.Impl;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import lee.spring.web.board.BoardVO;
-
+/*
 @Repository
 public class boardDAOSpring {
+
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
@@ -49,3 +51,4 @@ public class boardDAOSpring {
 		return jdbcTemplate.query(BOARD_LIST, new BoardRowMapper());
 	}
 }
+*/
