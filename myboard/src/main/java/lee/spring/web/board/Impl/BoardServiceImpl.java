@@ -9,7 +9,7 @@ import lee.spring.web.board.BoardService;
 import lee.spring.web.board.BoardVO;
 import lee.spring.web.common.Log4jAdvice;
 import lee.spring.web.common.LogAdvice;
-
+/*
 @Service("boardService")
 public class BoardServiceImpl implements BoardService {
 
@@ -57,3 +57,4 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 }
+*/
