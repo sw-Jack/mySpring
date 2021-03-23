@@ -9,6 +9,9 @@ public class BoardVO {
 	private String content;
 	private Date regDate;
 	private int cnt;
+	//글 목록 검색 중 검색 조건과 검색 단어 추가
+	private String searchCondition; //검색 조건
+	private String searchKeyword; //검색 단어
 	
 	public BoardVO() {}
 	
@@ -49,6 +52,22 @@ public class BoardVO {
 		this.cnt = cnt;
 	}
 	
+	public String getSearchCondition() {
+		return searchCondition;
+	}
+
+	public void setSearchCondition(String searchCondition) {
+		this.searchCondition = searchCondition;
+	}
+
+	public String getSearchKeyword() {
+		return searchKeyword;
+	}
+
+	public void setSearchKeyword(String searchKeyword) {
+		this.searchKeyword = searchKeyword;
+	}
+
 	@Override
 	public String toString() {
 		return "BoardVO [seq=" + seq + ", title=" + title + ", writer=" + writer + ", content=" + content + ", regDate="
