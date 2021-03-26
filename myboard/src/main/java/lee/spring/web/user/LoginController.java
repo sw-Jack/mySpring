@@ -27,6 +27,9 @@ public class LoginController {
 	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
 	public String login(UserVO vo, UserDAO userDAO, HttpSession session) {
 		System.out.println("로그인 인증 처리");
+		if(vo.getId() == null || vo.getId().equals("")) {
+			throw new IllegalAccessError("아이디를 입력하세요.");
+		}
 		UserVO user = userDAO.getUser(vo);
 		if (user != null) {
 			session.setAttribute("userName", user.getName());
