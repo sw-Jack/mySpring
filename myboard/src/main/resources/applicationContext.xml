@@ -1,20 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:c="http://www.springframework.org/schema/c"
-	xmlns:p="http://www.springframework.org/schema/p"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:p="http://www.springframework.org/schema/p"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:aop="http://www.springframework.org/schema/aop"
+   xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+   xmlns:tx="http://www.springframework.org/schema/tx"
+   xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+      http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
-	<bean id="tv" class="lee.spring.polymorphism.SamsungTV" >
-		<property name="speaker" ref="apple"></property>
-		<property name="price" value="3000000"></property>
-	</bean>
-	<!-- p : property(멤버변수), c : constructor(생성자) -->
-	<!-- 
-	<bean id="tv" class="lee.spring.polymorphism.SamsungTV"
-			p:speaker-ref="sony" p:price="3000000"/>
-	 -->
-	 
-	<bean id="sony" class="lee.spring.polymorphism.SonySpeaker"/>
-	<bean id="apple" class="lee.spring.polymorphism.AppleSpeaker"/>
+   <!-- 어노테이션을 사용하기 위해서 컨택스트 컨포넌트 스캔지정 -->
+   <context:component-scan
+      base-package="lee.spring.web"></context:component-scan>
+   <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+
+
+   <!-- 컨텍스트 프로퍼티 위치잡이 위치등록 -->
+   <context:property-placeholder location="classpath:config/database.properties" />
+
+   <bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+      <property name="dataSource" ref="dataSource" />
+      <property name="configLocation" value="classpath:mybatis-config.xml" />
+   </bean>
+
+   <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+      <constructor-arg ref="sessionFactory" />
+   </bean>
+
+   <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+      <property name="driverClassName" value="${jdbc.driver}" />
+      <property name="url" value="${jdbc.url}" />
+      <property name="username" value="${jdbc.username}" />
+      <property name="password" value="${jdbc.password}" />
+   </bean>
+
+   <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+      <property name="dataSource" ref="dataSource" />
+   </bean>
+
+
+   <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+      <property name="dataSource" ref="dataSource"></property>
+   </bean>
+
+   <tx:advice id="txAdvice" transaction-manager="txManager">
+      <tx:attributes>
+         <tx:method name="get*" read-only="true" />
+         <tx:method name="*" />
+      </tx:attributes>
+   </tx:advice>
+   <aop:config>
+      <aop:pointcut
+         expression="execution(* lee.spring.web..*(..))" id="txPointcut" />
+      <aop:advisor advice-ref="txAdvice"
+         pointcut-ref="txPointcut" />
+   </aop:config>
+
+
+   <!-- <bean id="log" class="lee.spring.web.common.LogAdvice"></bean> <bean 
+      id="afterThrowing" class="lee.spring.web.common.AfterThrowingAdvice"></bean> 
+      <bean id="before" class="lee.spring.web.common.BeforeAdvice"></bean> <bean 
+      id="after" class="lee.spring.web.common.AfterAdvice"></bean> <bean id="around" 
+      class="lee.spring.web.common.AroundAdvice"></bean> -->
+   <!-- <aop:config> <aop:pointcut expression="execution(* lee.spring.web..*Impl.*(..))" 
+      id="allPointcut"/> <aop:pointcut expression="execution(* lee.spring.web..*Impl.get*(..))" 
+      id="getPointcut"/> <aop:aspect ref="before"> <aop:around method="beforeLog" 
+      pointcut-ref="getPointcut" /> </aop:aspect> </aop:config> -->
+
+   <!-- <bean id="tv" class="lee.spring.polymorphism.SamsungTV" p:speaker-ref="sony" 
+      p:price="2800000" /> <bean id="sony" class = "lee.spring.polymorphism.SonySpeaker" 
+      /> -->
+   <!-- <bean id="apple" class = "lee.spring.polymorphism.AppleSpeaker" /> 
+      <context:component-scan base-package="lee.spring.polymorphism"> </context:component-scan> -->
+
+   <!-- <bean id="collectionBean" class="lee.spring.collection.CollectionBean"> 
+      <property name = "addressList"> <list> <value>서울시 서초구 서초동</value> <value>서울시 
+      동대문구 장안동</value> </list> </property> </bean> -->
+
+   <!-- <bean id="collectionBean" class ="lee.spring.collection.CollectionBean"> 
+      <property name="addressList"> <map> <entry> <key><value>홍길동</value></key> 
+      <value>율도국</value> </entry> <entry> <key><value>송오공</value></key> <value>화과산</value> 
+      </entry> </map> </property> </bean> -->
+
+   <!-- <bean name="client" class = "lee.spring.mybean.MyClient"> <property 
+      name="config"> <props> <prop key="server">127.0.0.1</prop> <prop key="connectionTimeout">5000</prop> 
+      </props> </property> </bean> -->
+
+   <!-- <bean id="collectionBean" class="lee.spring.collection.CollectionBean"> 
+      <property name="addressList"> <props> <prop key="홍길동">율도국</prop> <prop key="손오공">화과산</prop> 
+      </props> </property> </bean> -->
 </beans>
