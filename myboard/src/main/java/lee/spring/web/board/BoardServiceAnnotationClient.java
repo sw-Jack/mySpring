@@ -12,7 +12,7 @@ public class BoardServiceAnnotationClient {
 		// 1. 스프링 컨테이너 구동
 		AbstractApplicationContext container = 
 				//new GenericXmlApplicationContext("applicationContextBoardAnnotation.xml");
-				new GenericXmlApplicationContext("applicationContextDB.xml");
+				new GenericXmlApplicationContext("applicationContext.xml");
 		
 		// 2. 스프링 컨테이너로부터 BoardServiceImple 객체를 lookup 한다
 		BoardService boardService = (BoardService)container.getBean("boardService");
