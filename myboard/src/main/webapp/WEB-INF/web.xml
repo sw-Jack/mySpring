@@ -28,4 +28,20 @@
   	<filter-name>encodingFilter</filter-name>
   	<url-pattern>/*</url-pattern>
   </filter-mapping>
+  
+  <!-- ContextListener 등록 -->
+  <!-- ContextListener는 기본적으로  /WEB-INF/applicationContext.xml 경로의 파일을 읽어들임-->
+  <!-- 따라서 설정 파일 이름이나 경로를 변경했을 경우  context-param 설정을 추가해줌-->
+  <context-param>
+  	<param-name>contextConfigLocation</param-name>
+  	<param-value>classpath:applicationContext.xml</param-value>
+  </context-param>
+  
+  <!-- 서버를 작동시켰을 떄 해당 ContextLoaderListener 객체가 가장 먼저 pre-loading 됨 -->
+  <!-- 이때 ContextLoaderListener 객체는 src/main/resources 폴더에 있는 applicationContext.xml 파일을 로딩해
+   		스프링 컨테이너를 구동하는데 이를 ROOT 컨테이너라고 함
+  -->
+  <listener>
+  	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
 </web-app>
