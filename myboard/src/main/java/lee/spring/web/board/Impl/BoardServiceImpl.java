@@ -7,14 +7,12 @@ import org.springframework.stereotype.Service;
 
 import lee.spring.web.board.BoardService;
 import lee.spring.web.board.BoardVO;
-import lee.spring.web.common.Log4jAdvice;
-import lee.spring.web.common.LogAdvice;
-/*
+
 @Service("boardService")
 public class BoardServiceImpl implements BoardService {
 
 	@Autowired
-	private boardDAOSpring boardDAO;
+	private BoardDAOMybatis boardDAO; //Controller가 직접 DAO에 접근하지 않고, Service Interface를 통해서 접근
 	//private LogAdvice log;
 	//private Log4jAdvice logging;
 	
@@ -45,7 +43,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public BoardVO getBoardVO(BoardVO vo) {
+	public BoardVO getBoard(BoardVO vo) {
 		//logging.printLogging();
 		return boardDAO.getBoard(vo);
 	}
@@ -55,6 +53,4 @@ public class BoardServiceImpl implements BoardService {
 		//logging.printLogging();
 		return boardDAO.getBoardList(vo);
 	}
-
 }
-*/
