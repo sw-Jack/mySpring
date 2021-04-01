@@ -9,9 +9,8 @@ function acyncMovePage(url){
     };
     
     $.ajax(ajaxOption).done(function(data){
-        $('#bodyContents').children().remove();
-        $('#bodyContents').html(data);
+    	$('#bodyContents').children().remove();
+		$('#bodyContents').html(data);
     });
 }
-
 
