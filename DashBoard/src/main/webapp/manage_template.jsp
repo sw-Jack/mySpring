@@ -27,11 +27,9 @@
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
-
-
 </head>
   
- <body>
+<body>
 <!-- index.html : navbar -->
 <nav class="navbar navbar-expand-md navbar-light"> 
 		<button class="navbar-toggler ml-auto mb-2 bg-light" type="button" data-toggle="collapse" data-target="#sidebar">
@@ -50,7 +48,7 @@
 						</div>
 						<ul class="navbar-nav flex-column mt-4">
 							<li class="nav-item">
-								<a href="#" class="nav-link text-white p-2 mb-2 current" onclick="acyncMovePage('manage_dashboard.jsp')">
+								<a href="#" class="nav-link text-white p-2 mb-2 sidebar-link" onclick="acyncMovePage('manage_dashboard.jsp')">
 									<i class="fas fa-home text-white fa-lg mr-2"></i>DashBoard
 								</a>
 							</li>
@@ -127,7 +125,7 @@
 							<div class="col-md-5">
 								<form action="">
 									<div class="input-group">
-										<input type="text" class="form-control search-input" placeholder="Search">
+										<input type="text" class="form-control search-input" placeholder="검색어 입력">
 										<button type="button" class="btn btn-light search-button">
 											<i class="fas fa-search text-danger"></i>
 										</button>
