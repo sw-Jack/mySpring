@@ -183,8 +183,8 @@
 																	<input type="text" class="form-control" id="subtitle">
 																</div><br>
 																<div>
-																	<button type="button" class="btn btn-info btn-sm" onclick="acyncMovePage('manage_movie.jsp')">등록하기</button>
-																	<button type="button" class="btn btn-info btn-sm" onclick="acyncMovePage('manage_movie.jsp')">뒤로가기</button>
+																	<button type="button" class="btn btn-success btn-sm" onclick="acyncMovePage('manage_movie.jsp')">등록하기</button>
+																	<button type="button" class="btn btn-danger btn-sm" onclick="acyncMovePage('manage_movie.jsp')">뒤로가기</button>
 																</div>
 															</div>
 														</div>
