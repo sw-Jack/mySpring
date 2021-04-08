@@ -78,7 +78,7 @@
 								</a>
 							</li>
 							<li class="nav-item">
-								<a href="#" class="nav-link text-white p-2 mb-2 sidebar-link" onclick="acyncMovePage('manage_membership.jsp')">
+								<a href="#" class="nav-link text-white p-2 mb-2 sidebar-link" onclick="acyncMovePage('manage_ticket.jsp')">
 									<i class="fas fa-credit-card text-white fa-lg mr-2"></i>이용권
 								</a>
 							</li>
@@ -87,11 +87,12 @@
 									<i class="fas fa-money-check-alt text-white fa-lg mr-2"></i>판매
 								</a>
 							</li>
-							<li class="nav-item">
-								<a href="#" class="nav-link text-white p-2 mb-2 sidebar-link" onclick="acyncMovePage('manage_cs.jsp')">
-									<i class="fas fa-question-circle text-white fa-lg mr-2"></i>고객센터
-								</a>
-							</li>
+							<li class="dropdown nav-item"><a href="#" class="nav-link text-white p-2 mb-2 sidebar-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fas fa-question-circle text-white fa-lg mr-2"></i>고객센터</a>
+								<ul class="dropdown-menu">
+									<li><a class="nav-link text-white p-2 mb-2 sidebar-link" href="#" onclick="acyncMovePage('manage_cs.jsp')"><i class="fas fa-angle-right"></i>&nbsp;공지사항</a></li>
+									<li><a class="nav-link text-white p-2 mb-2 sidebar-link" href="#" onclick="acyncMovePage('manage_cs.jsp')"><i class="fas fa-angle-right"></i>&nbsp;FAQ</a></li>
+									<li><a class="nav-link text-white p-2 mb-2 sidebar-link" href="#" onclick="acyncMovePage('manage_cs.jsp')"><i class="fas fa-angle-right"></i>&nbsp;1:1 문의</a></li>
+								</ul></li>
 							<li class="nav-item">
 								<a href="#" class="nav-link text-white p-2 mb-2 sidebar-link" onclick="acyncMovePage('manage_policy.jsp')">
 									<i class="fas fa-file-signature text-white fa-lg mr-2"></i>이용약관
@@ -165,9 +166,7 @@
 	</nav>
 <!-- end of top navbar -->
 
-<div><hr><hr><hr><hr></div>
-
-<div id="bodyContents">
+<div id="bodyContents" class="position-relative" style="top:80px;">
 	<section>
 		<div class="container-fluid">
 			<div class="row">
