@@ -23,10 +23,14 @@
 					<div class="col-12">
 						<h3 class="text-muted text-center mb-3">회원 리스트</h3>
 					</div>
-						<div class="col-12">
-							<div class="row mb-1">
-								<form action="">
-									
+							<div class="row">
+								<div class="col-7">
+									<button type="button" class="btn btn-primary btn-sm"
+									onclick="acyncMovePage('memberInsert.jsp')">+회원추가</button>
+									<button type="button" class="btn btn-info btn-sm">PDF</button>
+									<button type="button" class="btn btn-info btn-sm">EXCEL</button>
+								</div>
+								<form action="" class="col-5">
 									<div class="input-group">
 										<div>
 											<select class="form-control">
@@ -44,7 +48,6 @@
 
 								</form>
 							</div>
-						</div>
 
 						<div>
 						<table class="table bg-light text-center table-bordered table-striped">
