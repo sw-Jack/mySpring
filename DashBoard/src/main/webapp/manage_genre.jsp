@@ -18,8 +18,8 @@
 							<div class="col-5">
 								<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#insertGenre">+장르추가</button>
 							
-								<button type="button" class="btn btn-primary btn-sm">PDF</button>
-								<button type="button" class="btn btn-primary btn-sm">EXCEL</button>
+								<button type="button" class="btn btn-info btn-sm">PDF</button>
+								<button type="button" class="btn btn-info btn-sm">EXCEL</button>
 							</div>
 						</div>
 						<div>
@@ -37,8 +37,8 @@
 									<th>코미디</th>
 									<th>
 										<button type="button" class="btn btn-primary btn-sm"
-											onclick="acyncMovePage('genreModify.jsp')">수정</button>
-										<button type="button" class="btn btn-primary btn-sm"
+											data-toggle="modal" data-target="#modifyGenre">수정</button>
+										<button type="button" class="btn btn-danger btn-sm"
 											data-toggle="modal" data-target="#deleteGenre">삭제</button>
 									</th>
 								</tr>
@@ -47,8 +47,8 @@
 									<th>액션</th>
 									<th>
 										<button type="button" class="btn btn-primary btn-sm"
-											onclick="acyncMovePage('genreModify.jsp')">수정</button>
-										<button type="button" class="btn btn-primary btn-sm"
+											data-toggle="modal" data-target="#modifyGenre">수정</button>
+										<button type="button" class="btn btn-danger btn-sm"
 											data-toggle="modal" data-target="#deleteGenre">삭제</button>
 									</th>
 								</tr>
@@ -57,8 +57,8 @@
 									<th>스릴러</th>
 									<th>
 										<button type="button" class="btn btn-primary btn-sm"
-											onclick="acyncMovePage('genreModify.jsp')">수정</button>
-										<button type="button" class="btn btn-primary btn-sm"
+											data-toggle="modal" data-target="#modifyGenre">수정</button>
+										<button type="button" class="btn btn-danger btn-sm"
 											data-toggle="modal" data-target="#deleteGenre">삭제</button>
 									</th>
 								</tr>
@@ -67,8 +67,8 @@
 									<th>판타지</th>
 									<th>
 										<button type="button" class="btn btn-primary btn-sm"
-											onclick="acyncMovePage('genreModify.jsp')">수정</button>
-										<button type="button" class="btn btn-primary btn-sm"
+											data-toggle="modal" data-target="#modifyGenre">수정</button>
+										<button type="button" class="btn btn-danger btn-sm"
 											data-toggle="modal" data-target="#deleteGenre">삭제</button>
 									</th>
 								</tr>
@@ -77,8 +77,8 @@
 									<th>공포</th>
 									<th>
 										<button type="button" class="btn btn-primary btn-sm"
-											onclick="acyncMovePage('genreModify.jsp')">수정</button>
-										<button type="button" class="btn btn-primary btn-sm"
+											data-toggle="modal" data-target="#modifyGenre">수정</button>
+										<button type="button" class="btn btn-danger btn-sm"
 											data-toggle="modal" data-target="#deleteGenre">삭제</button>
 									</th>
 								</tr>
@@ -142,6 +142,33 @@
 											</div><br>
 											<div>
 												<button type="button" class="btn btn-success btn-sm" data-dismiss="modal">등록</button>
+												<button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">취소</button>
+											</div>
+										</div>
+									</form>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+					<!-- modal -->
+					<div class="modal fade" id="modifyGenre">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h4 class="modal-title">장르명 수정</h4>
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+								</div>
+								<div class="modal-body">
+									<form role="form" method="POST" action="">
+										<input type="hidden" name="_token" value="">
+										<div class="form-group">
+											<label class="control-label">장르명</label>
+											<div>
+												<input type="text" class="form-control input-lg" name="newGenre" value="">
+											</div><br>
+											<div>
+												<button type="button" class="btn btn-success btn-sm" data-dismiss="modal">수정</button>
 												<button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">취소</button>
 											</div>
 										</div>
