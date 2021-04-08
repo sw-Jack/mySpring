@@ -18,8 +18,8 @@
 							<div class="col-5">
 								<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#insertDirector">+감독추가</button>
 							
-								<button type="button" class="btn btn-primary btn-sm">PDF</button>
-								<button type="button" class="btn btn-primary btn-sm">EXCEL</button>
+								<button type="button" class="btn btn-info btn-sm">PDF</button>
+								<button type="button" class="btn btn-info btn-sm">EXCEL</button>
 							</div>
 						</div>
 						<div>
@@ -39,8 +39,8 @@
 									<th>1961-01-01</th>
 									<th>
 										<button type="button" class="btn btn-primary btn-sm"
-											onclick="acyncMovePage('directorModify.jsp')">수정</button>
-										<button type="button" class="btn btn-primary btn-sm"
+											data-toggle="modal" data-target="#modifyDirector">수정</button>
+										<button type="button" class="btn btn-danger btn-sm"
 											data-toggle="modal" data-target="#deleteDirector">삭제</button>
 									</th>
 								</tr>
@@ -50,8 +50,8 @@
 									<th>1970-09-29</th>
 									<th>
 										<button type="button" class="btn btn-primary btn-sm"
-											onclick="acyncMovePage('directorModify.jsp')">수정</button>
-										<button type="button" class="btn btn-primary btn-sm"
+											data-toggle="modal" data-target="#modifyDirector">수정</button>
+										<button type="button" class="btn btn-danger btn-sm"
 											data-toggle="modal" data-target="#deleteDirector">삭제</button>
 									</th>
 								</tr>
@@ -61,8 +61,8 @@
 									<th>1960-01-01</th>
 									<th>
 										<button type="button" class="btn btn-primary btn-sm"
-											onclick="acyncMovePage('directorModify.jsp')">수정</button>
-										<button type="button" class="btn btn-primary btn-sm"
+											data-toggle="modal" data-target="#modifyDirector">수정</button>
+										<button type="button" class="btn btn-danger btn-sm"
 											data-toggle="modal" data-target="#deleteDirector">삭제</button>
 									</th>
 								</tr>
@@ -114,7 +114,7 @@
 						<div class="modal-dialog">
 							<div class="modal-content">
 								<div class="modal-header">
-									<h4 class="modal-title">새로운 장르 등록</h4>
+									<h4 class="modal-title">감독 추가</h4>
 									<button type="button" class="close" data-dismiss="modal">&times;</button>
 								</div>
 								<div class="modal-body">
@@ -123,11 +123,46 @@
 										<div class="form-group">
 											<label class="control-label">감독명</label>
 											<div>
-												<input type="text" class="form-control input-lg" name="newDirector" value="">
+												<input type="text" class="form-control input-lg" name="newDirectorName" value="">
+											</div><br>
+											<label class="control-label">생년월일</label>
+											<div>
+												<input type="text" class="form-control input-lg" name="newDirectorBirth" value="">
 											</div><br>
 											<div>
-												<input type="button" class="btn btn-success" value="등록">
-												<input type="button" class="btn btn-danger" value="취소">
+												<button type="button" class="btn btn-success" data-dismiss="modal">등록</button>
+												<button type="button" class="btn btn-danger" data-dismiss="modal">취소</button>
+											</div>
+										</div>
+									</form>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+					<!-- modal -->
+					<div class="modal fade" id="modifyDirector">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h4 class="modal-title">감독 추가</h4>
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+								</div>
+								<div class="modal-body">
+									<form role="form" method="POST" action="">
+										<input type="hidden" name="_token" value="">
+										<div class="form-group">
+											<label class="control-label">감독명</label>
+											<div>
+												<input type="text" class="form-control input-lg" name="directorName" value="">
+											</div><br>
+											<label class="control-label">생년월일</label>
+											<div>
+												<input type="text" class="form-control input-lg" name="directorBirth" value="">
+											</div><br>
+											<div>
+												<button type="button" class="btn btn-success" data-dismiss="modal">수정</button>
+												<button type="button" class="btn btn-danger" data-dismiss="modal">취소</button>
 											</div>
 										</div>
 									</form>
