@@ -24,8 +24,8 @@
 							<div class="col-7">
 								<button type="button" class="btn btn-primary btn-sm"
 									onclick="acyncMovePage('movieInsert.jsp')">+영화추가</button>
-								<button type="button" class="btn btn-primary btn-sm">PDF</button>
-								<button type="button" class="btn btn-primary btn-sm">EXCEL</button>
+								<button type="button" class="btn btn-info btn-sm">PDF</button>
+								<button type="button" class="btn btn-info btn-sm">EXCEL</button>
 							</div>
 
 							<div class="col-5">
@@ -78,9 +78,9 @@
 									<th>
 										<button type="button" class="btn btn-primary btn-sm"
 											onclick="acyncMovePage('movieModify.jsp')">수정</button>
-										<button type="button" class="btn btn-primary btn-sm"
+										<button type="button" class="btn btn-danger btn-sm"
 											data-toggle="modal" data-target="#deleteMovie">삭제</button>
-										<button type="button" class="btn btn-primary btn-sm">상세보기</button>
+										<button type="button" class="btn btn-success btn-sm">상세보기</button>
 									</th>
 								</tr>
 								<tr>
@@ -95,9 +95,9 @@
 									<th>
 										<button type="button" class="btn btn-primary btn-sm"
 											onclick="acyncMovePage('movieModify.jsp')">수정</button>
-										<button type="button" class="btn btn-primary btn-sm"
+										<button type="button" class="btn btn-danger btn-sm"
 											data-toggle="modal" data-target="#deleteMovie">삭제</button>
-										<button type="button" class="btn btn-primary btn-sm">상세보기</button>
+										<button type="button" class="btn btn-success btn-sm">상세보기</button>
 									</th>
 								</tr>
 								<tr>
@@ -112,9 +112,9 @@
 									<th>
 										<button type="button" class="btn btn-primary btn-sm"
 											onclick="acyncMovePage('movieModify.jsp')">수정</button>
-										<button type="button" class="btn btn-primary btn-sm"
+										<button type="button" class="btn btn-danger btn-sm"
 											data-toggle="modal" data-target="#deleteMovie">삭제</button>
-										<button type="button" class="btn btn-primary btn-sm">상세보기</button>
+										<button type="button" class="btn btn-success btn-sm">상세보기</button>
 									</th>
 								</tr>
 							</tbody>
