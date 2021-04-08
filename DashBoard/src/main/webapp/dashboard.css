@@ -26,6 +26,14 @@
 	box-shadow: 2px 5px 10px #111;
 }
 
+.dropdown-menu {
+	background-color: #070707;
+	border-radius: 7px;
+	box-shadow:  2px 5px 20px #111;
+}
+
+
+
 .sidebar ul li .current:hover {
 	background-color: #f66436;
 	border-radius: 7px;
